@@ -4,10 +4,15 @@ apply plugin: 'maven-publish'
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:7.4.2'
+    
+    // 只保留最基础的 API 依赖，避免自动链接到带向后兼容逻辑的内部模型
+    compileOnly 'com.android.tools.build:gradle-api:8.7.0'
+    
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'commons-codec:commons-codec:1.15'
+    implementation 'org.ow2.asm:asm:9.6'
+    implementation 'org.ow2.asm:asm-commons:9.6'
 }
 
 repositories {
@@ -20,7 +25,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.billy.android'
             artifactId = 'autoregister'
-            version = '1.4.2'
+            version = '1.5.0'
             from components.java
         }
     }

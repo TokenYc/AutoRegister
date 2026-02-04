@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '26.0.2'
+    namespace 'com.billy.android.autoregister.demo'
+    compileSdkVersion 35
+    buildToolsVersion '35.0.0'
     defaultConfig {
         applicationId "com.billy.android.autoregsiter.demo"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
     }
@@ -71,7 +72,8 @@ project.ext.registerInfoList = [
     ]
 ]
 
+
 autoregister {
     registerInfo = registerInfoList
-    cacheEnabled = true
+    cacheEnabled = false
 }

@@ -4,8 +4,6 @@ import com.google.gson.Gson
 import org.gradle.api.Project
 
 import java.lang.reflect.Type
-
-import static com.android.builder.model.AndroidProject.FD_INTERMEDIATES
 /**
  * 文件操作辅助类
  * @author zhangkb
@@ -56,7 +54,7 @@ class AutoRegisterHelper {
     }
 
     private static String getCacheFileDir(Project project) {
-        return project.getBuildDir().absolutePath + File.separator + FD_INTERMEDIATES + File.separator + CACHE_INFO_DIR + File.separator
+        return project.getBuildDir().absolutePath + File.separator + "intermediates" + File.separator + CACHE_INFO_DIR + File.separator
     }
 
     /**

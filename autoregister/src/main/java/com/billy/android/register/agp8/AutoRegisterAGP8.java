@@ -36,25 +36,5 @@ public class AutoRegisterAGP8 implements Plugin<Project> {
                 );
             });
         }
-
-        LibraryAndroidComponentsExtension libComponents = 
-            project.getExtensions().findByType(LibraryAndroidComponentsExtension.class);
-        if (libComponents != null) {
-            libComponents.onVariants(libComponents.selector().all(), variant -> {
-                config.convertConfig();
-                variant.getInstrumentation().transformClassesWith(
-                    AutoRegisterAsmFactory.class,
-                    InstrumentationScope.ALL,
-                    params -> {
-                        params.getConfigList().set(config.list);
-                        return null;
-                    }
-                );
-                // 同样为 Library 开启强制栈帧计算
-                variant.getInstrumentation().setAsmFramesComputationMode(
-                    FramesComputationMode.COMPUTE_FRAMES_FOR_INSTRUMENTED_METHODS
-                );
-            });
-        }
     }
 }

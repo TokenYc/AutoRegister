@@ -9,6 +9,9 @@ import java.util.Set;
  */
 public class CategoryManager {
     private static HashMap<String, ICategory> CATEGORIES = new HashMap<>();
+    static {
+        // static block for auto-register
+    }
 
     static void register(ICategory category) {
         if (category != null) {
